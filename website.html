@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        /* hero div starts  */
+        .hero{
+            background-image: url(back.jpg);
+            width: 100%;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero::after{
+            content: ' ';
+            opacity: .6;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: black;
+            z-index: -1;
+        }
+        .hero h1{
+            display: block;
+            width: fit-content;
+            font-size: 4rem;
+            color: transparent;
+            position: relative;
+            animation: text .5s ease forwards;
+            animation-delay: 1.5s;
+        }
+        .container h1:nth-child(1){
+            animation-delay: .5s;
+        }
+        .container h1:nth-child(2){
+            animation-delay: 2.5s;
+        }
+        .containerf h1:nth-child(3){
+            animation-delay: 3.5s;
+        }
+        .container h1:nth-child(1) span{
+            animation-delay: .5s;
+        }
+        .container h1:nth-child(2) span{
+            animation-delay: 1.5s;
+        }
+        .container h1:nth-child(3) span{
+            animation-delay: .5s;
+        }
+        .cta{
+            display: inline-block;
+            padding: 10px 10px;
+            color: white;
+            background: transparent;
+            border: 2px solid crimson;
+            font-size: 2rem;
+            letter-spacing: .3rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin-top: 30px;
+            transition: .3s ease;
+            transition-property: background-color, color;
+        }
+        .cta:hover{
+            color: white;
+            background: crimson;
+        }
+        /* hero div ends  */
+        /* container div starts her  */
+        .container{
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero h1 span{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background: crimson;
+            animation: reveal 1s ease;
+            animation-delay: 1s;
+        }
+        .container{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px;
+            justify-content: flex-start;
+        }
+        /* container div ends here  */
+        /* keyframes start here  */
+        @keyframes reveal{
+            50%{
+                width: 100%;
+                left: 0;
+            }
+            100%{
+                width: 0;
+                left: 100%;
+            }
+        }
+        @keyframes text{
+            100%{
+                color: white;
+            }
+        }
+        /* keyframes ends here  */
+        /* service starts here  */
+        .service-container{
+            text-align: center;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 100px 0;
+        }
+        .service-title{
+            font-size: 4rem;
+            font-weight: 300;
+            color: black;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: .2rem;
+            text-align: center;
+        }
+        .service-title span{
+            color: crimson;
+        }
+        .service-title p{
+            font-size: 1.4rem;
+            margin-top: 5px;
+            line-height: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.05rem;
+        }
+        .service-bottom{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .service-item{
+            cursor: pointer;
+            flex-basis: 30%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            padding: 30px;
+            background-image:url(images.jfif);
+            background-size: cover;
+            margin: 10px 5%;
+            border-radius: 15px;
+        }
+        .service-item p{
+            font-size: 1.2rem;
+            color: white;
+            text-align: left;
+        }
+        .service-item h2{
+            text-transform: uppercase;
+            color: white;
+        }
+        /* service ends here  */
+        /* projects start here  */
+        .all-projects{
+            display: flex;
+            flex-direction: column;
+            width: 1200px;
+            margin: 0 auto;
+            padding: 100px 0;
+            align-items: center;
+            justify-content: center;
+        }
+        .project-item{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 80%;
+            margin: 28px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .project-info{
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            width: 260px;
+            padding: 30px;
+            flex-basis: 50%;
+            height: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            background:  #3F4B59;
+            color: white;
+        }
+        .project .project-img img{
+            flex-basis: 50%;
+            overflow: hidden;
+            position: relative;
+            transition: .3s ease transform;
+        }
+        .project-item:hover{
+            transform: scale(1.1);
+            transition: .3s ease transform;
+        }
+        /* project ends here  */
+        /* about starts here */
+        .about{
+            display: flex;
+            flex-direction: column-reverse;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+        .about .col-left{
+            width: 250px;
+            height: 360px;
+        }
+        .col-right{
+            width: 100%;
+        }
+        .col-right h2{
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: .2rem;
+            margin-bottom: 10px;
+        }
+        .col-left img{
+            width: 500px;
+        }
+        #f{
+            color: black;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+        #c{
+            margin-left: 320px;
+        }
+        /* about ends here  */
+        .lo{
+            color: crimson;
+        }
+        .logo{
+            font-size: 1.4rem;
+            letter-spacing: .4rem;
+        }
+        .header{
+            background: rgba(31,30,30,0.24);
+            z-index: 1000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: auto;
+        }
+        .header .navbar{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            max-width: 1300px;
+            padding: 0 10px;
+        }
+        /* .navlist ul{
+            list-style: none;
+            position: absolute;
+            background: rgba(31,30,30);
+            width: 100vw;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            overflow-x: hidden;
+        } */
+        .navlist ul a{
+            font-size: 1.6rem;
+            letter-spacing: .3rem;
+            list-style: none;
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            margin-right: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            display: flex;
+            display: inline-block;
+            position: relative;
+        }
+        .navlist{
+            margin-right: -600px;
+        }
+        .navlist ul a::after{
+            content: ' ';
+            width: 0%;
+            height: 4px;
+            display: block;
+            margin: auto;
+            background: turquoise;
+            transition: .6s ease-in;
+        }
+        .navlist ul a:hover:after{
+            width: 100%;
+        }
+        .footer{
+            background: black;
+            display: block;
+        }
+        .footer p{
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 5rem;
+        }
+                /* .navlist ul a::after{
+            content: 'text';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            color: rgba(240, 248, 255, 0.021);
+            font-size: 15rem;
+            letter-spacing: 50px;
+            z-index: -1;
+        }
+        .navlist ul li:hover a::after{
+            transform: translate(-50%, -50%) scale(1);
+        } */
+    </style>
+</head>
+<body>
+    <!-- header start here -->
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
+                <h1>F<span class="lo">o</span>u<span class="lo">a</span>d</h1>
+            </div>
+            <div class="nav">
+                <div class="navlist">
+                    <ul>
+                        <a href="#" data-after="HOME"><li>HOME</li></a>
+                        <a href="#" data-after="SERVICE"><li>SERVICE</li></a>
+                        <a href="#" data-after="ABOUT"><li>ABOUT</li></a>
+                        <a href="#" data-after="PROJECTS"><li>PROJECTS</li></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header ends here -->
+    <!-- hero starts here -->
+    <div class="hero">
+        <div class="container">
+            <div>
+                <h1>Hello,<span></span></h1>
+                <h1>My Name Is <span></span></h1>
+                <h1>Fouad <span></span></h1>
+                <a href="#" type="button" class="cta">Portfolio</a>
+            </div>
+        </div>
+    </div>
+    <!-- Hero ends here -->
+    <!-- service section starts here -->
+    <div class="service">
+        <div class="service-container">
+            <div class="service-top">
+                <div class="service-title"><h1>SERV<SPAN>I</SPAN>CE</h1>
+                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sit officiis voluptates voluptatum. Incidunt autem, itaque quis eius numquam quia!</P>
+                </div>
+            </div>
+            <div class="service-bottom">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="https://img.icons8.com/bubbles/100/000000/services.png">
+                    </div>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel a, nulla molestiae eum eius odit provident voluptate aut est voluptatem!</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="https://img.icons8.com/bubbles/100/000000/services.png">
+                    </div>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel a, nulla molestiae eum eius odit provident voluptate aut est voluptatem!</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="https://img.icons8.com/bubbles/100/000000/services.png">
+                    </div>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel a, nulla molestiae eum eius odit provident voluptate aut est voluptatem!</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="https://img.icons8.com/bubbles/100/000000/services.png">
+                    </div>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel a, nulla molestiae eum eius odit provident voluptate aut est voluptatem!</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="https://img.icons8.com/bubbles/100/000000/services.png">
+                    </div>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel a, nulla molestiae eum eius odit provident voluptate aut est voluptatem!</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="https://img.icons8.com/bubbles/100/000000/services.png">
+                    </div>
+                    <h2>Web Design</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel a, nulla molestiae eum eius odit provident voluptate aut est voluptatem!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- sevice section ends here -->
+    <!-- prjects starts here -->
+    <div class="project-container">
+        <div class="project-header">
+            <div class="service-title">Recent <span>Projects</span></div>
+        </div>
+        <div class="all-projects">
+            <div class="project-item">
+                <div class="project-info">
+                    <h1>Project 1</h1>
+                    <h2>Coding is love.</h2>
+                </div>
+                <div class="project-img">
+                    <img src="download.jfif" alt="">
+                </div></div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Project 2</h1>
+                        <h2>Coding is love.</h2>
+                    </div>
+                    <div class="project-img">
+                        <img src="download.jfif" alt="">
+                    </div>
+                </div>
+               <div class="project-item">
+                <div class="project-info">
+                    <h1>Project 3</h1>
+                    <h2>Coding is love.</h2>
+                </div>
+                <div class="project-img">
+                    <img src="download.jfif" alt="">
+                </div>
+               </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Project 4</h1>
+                        <h2>Coding is love.</h2>
+                    </div>
+                    <div class="project-img">
+                        <img src="download.jfif" alt="">
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!-- projects start here -->
+    <!-- About starts here -->
+    <div class="about">
+        <div class="col-left">
+            <img id="c" src="about.jpg" alt="">
+        </div>
+        <div class="col-right">
+            <h1 class="service-title">About <span>me</span></h1>
+            <h2>Font End Developer</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur sequi aliquam, praesentium vero ullam cum assumenda ut totam aliquid voluptatibus atque eveniet quam iusto eos velit corporis odit, fuga, beatae explicabo aperiam sed id. Voluptas nulla debitis odit accusamus tempore.</p>
+            <a href="#" type="button" id="f" class="cta">download resume</a>
+        </div>
+    </div><br><br><br><br><br><br><br><br><br>
+    <!-- About ends here -->
+    <div class="footer">
+        <div class="details">
+            <p>&copy; Fouad Azmol Hoque</p>
+        </div>
+    </div>
+</body>
+</html>
